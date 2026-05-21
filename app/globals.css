@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0d12;
+  --surface: #13161f;
+  --surface-2: #1a1e2a;
+  --surface-3: #222636;
+  --border: #2a2f3d;
+  --border-hover: #3d4460;
+  --text: #e8eaf2;
+  --text-muted: #7880a0;
+  --text-dim: #4a5068;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --green: #10b981;
+  --yellow: #eab308;
+  --font-ui: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+.font-mono { font-family: var(--font-mono); }
+
+@layer utilities {
+  .risk-critical { color: var(--red); }
+  .risk-high { color: var(--amber); }
+  .risk-medium { color: var(--yellow); }
+  .risk-low { color: var(--green); }
+
+  .ring-accent { box-shadow: 0 0 0 1px var(--accent); }
+
+  .glass {
+    background: rgba(26, 30, 42, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.6rem;
+    transition: background .12s ease, transform .06s ease;
+    border: 1px solid transparent;
+  }
+
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent), var(--surface-2);
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+  }
+
+  tbody tr:hover {
+    background: var(--surface-2);
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+}
